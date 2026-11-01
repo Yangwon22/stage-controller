@@ -1,0 +1,4 @@
+node_modules/
+schema-cache.json
+changes.log
+discover-output.json

@@ -1,0 +1,16 @@
+{
+  "port": 8080,
+  "pin": "1234",
+  "ue": {
+    "host": "127.0.0.1",
+    "port": 30010,
+    "passphrase": ""
+  },
+  "sendIntervalMs": 50,
+  "pollMs": 2000,
+  "transactionMode": "always",
+  "autoDiscover": true,
+  "manualObjects": [],
+  "engineDir": "",
+  "ueVersion": "5.7"
+}

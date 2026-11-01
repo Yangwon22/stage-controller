@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Stage Controller">
+<meta name="theme-color" content="#151515">
+<title>Stage Controller</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="auth" class="auth">
+  <div class="auth-box">
+    <svg id="splash" class="splash" viewBox="0 0 600 340" role="img" aria-label="LED volume with a tracked camera frustum"></svg>
+    <div class="auth-title">STAGE CONTROLLER</div>
+    <div class="auth-sub">Virtual Production Remote</div>
+    <div class="pin-wrap">
+      <input id="pin" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off" aria-label="PIN">
+      <button id="pinBtn" class="auth-btn">Connect</button>
+    </div>
+    <div id="authMsg" class="auth-msg"></div>
+  </div>
+  <div class="auth-foot"><span id="authHost"></span></div>
+</div>
+
+<div id="app" class="app" hidden>
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn only-narrow" aria-label="Outliner">☰</button>
+    <div class="brand">◆ <span>Stage Controller</span></div>
+    <div class="status">
+      <span class="pill" title="Bridge"><i id="bridgeDot" class="dot"></i><span class="pill-text">Bridge</span></span>
+      <span class="pill" title="Unreal"><i id="ueDot" class="dot"></i><span class="pill-text">Unreal</span></span>
+    </div>
+    <div class="spacer"></div>
+    <button id="fineBtn" class="btn toggle" title="Fine drag (x0.1)">Fine</button>
+    <button id="lockBtn" class="btn toggle">Lock</button>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <div class="workspace">
+    <aside id="outliner" class="panel outliner">
+      <div class="panel-head">
+        <span>Outliner</span>
+        <button id="rescanBtn" class="btn small">Rescan</button>
+      </div>
+      <div class="ol-search-row"><input id="olSearch" type="search" placeholder="Search Outliner" autocomplete="off" autocorrect="off" spellcheck="false"></div>
+      <div class="ol-cols"><span>Item Label</span><span>Type</span></div>
+      <div id="outlinerList" class="outliner-list"></div>
+      <div id="scanNote" class="scan-note"></div>
+    </aside>
+    <div id="scrim" class="scrim"></div>
+
+    <main class="panel details">
+      <div class="panel-head details-head">
+        <div class="title-block">
+          <div id="objTitle" class="obj-title">Details</div>
+          <div id="objClass" class="obj-class"></div>
+        </div>
+        <div class="head-actions">
+          <button id="snapBtn" class="btn small" disabled>Snapshots</button>
+          <button id="revertAllBtn" class="btn small" disabled>Revert All</button>
+        </div>
+      </div>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search Details" autocomplete="off" autocorrect="off" spellcheck="false">
+        <label class="chk-inline"><input id="modifiedOnly" type="checkbox"> Modified</label>
+      </div>
+      <div id="details" class="details-body">
+        <div class="empty">Select an actor in the Outliner.</div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="sheet" class="sheet" hidden>
+  <div class="sheet-box">
+    <div class="sheet-head">
+      <span>Snapshots</span>
+      <button id="sheetClose" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-actions">
+      <button id="snapSave" class="btn primary">Save Current</button>
+    </div>
+    <div id="snapList" class="snap-list"></div>
+  </div>
+</div>
+
+<div id="editor" class="editor" hidden>
+  <div class="editor-box">
+    <div id="editorLabel" class="editor-label"></div>
+    <input id="editorInput" type="text" inputmode="decimal" autocomplete="off">
+    <div class="editor-actions">
+      <button id="editorCancel" class="btn">Cancel</button>
+      <button id="editorOk" class="btn primary">Set</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="splash.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

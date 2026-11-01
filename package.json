@@ -1,0 +1,15 @@
+{
+  "name": "ipad-stage-controller",
+  "version": "1.4.0",
+  "description": "iPad/iPhone controller for UE 5.7 Post Process Volumes and nDisplay via Remote Control",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
